@@ -56,11 +56,6 @@ public class MainActivity extends AppCompatActivity {
         btn_cancel.setVisibility(View.GONE);
         txtTimer.setVisibility(View.GONE);
 
-        Request request = new Request.Builder().url("ws://localhost:8080/SocketSendToken/actions").build();
-        WebSocketListener webSocketListener = new WebSocketListener();
-        WebSocket ws = client.newWebSocket(request, webSocketListener);
-        client.dispatcher().executorService().shutdown();
-
         motionDetector = new MotionDetector(this, surfaceView);
         motionDetector.setMotionDetectorCallback(new MotionDetectorCallback() {
             @Override
